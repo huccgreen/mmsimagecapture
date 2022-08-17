@@ -1,22 +1,15 @@
 
-import React, { useState, useRef, useEffect, useContext } from "react";
-//import PictureItemComponent from "./PictureItemComponent";
+import React, { useContext } from "react";
+
 import { AppContext } from "../appContext/AppContext";
 
 
 const PicturesComponent = () => {
 
-  //const [allPictures, setAllPictures] = useState([]);
+
   const { currentPictures, setCurrentPictures } = useContext(AppContext);
 
-  // useEffect(() => {
-  //   // const fetched = JSON.parse(localStorage.getItem("key"));
-  //   //console.log(fetched.allImages.photos)
-  //   // setAllPictures(fetched.allImages.photos);
-  //   console.log(currentPictures);
 
-
-  // }, []);
   const deleteItem = (myItem) => {
     var tempItems = [...currentPictures].filter((currentPicture) => currentPicture !== myItem);
     setCurrentPictures(tempItems);
@@ -24,7 +17,7 @@ const PicturesComponent = () => {
 
   return (<>
 
-    {currentPictures ? currentPictures.map((pic, index) => {
+    {currentPictures && currentPictures.map((pic, index) => {
       return (
         <div key={index} className="w-full justify-center bg-white px-8">
 
@@ -43,15 +36,13 @@ const PicturesComponent = () => {
             </svg>
 
           </div>
-
-
-
         </div >
       )
     })
 
-      : <div> Empty</div>
     }
+
+    {currentPictures.length < 1 && <div> The List is Empty</div>}
   </>
 
   );
