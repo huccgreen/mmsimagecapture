@@ -13,7 +13,7 @@ const PicturesComponent = () => {
     const fetched = JSON.parse(localStorage.getItem("key"));
     //console.log(fetched.allImages.photos)
     setAllPictures(fetched.allImages.photos);
-    console.log(allPictures);
+    console.log(currentPictures );
     
 
   },[]);
@@ -22,7 +22,7 @@ const PicturesComponent = () => {
 
   {currentPictures ? currentPictures.map((pic,index)=>{return(
     <div key={index} className="w-full align-items justify-center bg-black">
-      <div className="w-full align-items justify-center bg-black"> <img className="w-1/2" src={pic} alt='preview' onClick = {()=>alert("Going to the list")} />
+      <div className="w-full align-items justify-center bg-black"> <img src={pic} alt='preview' onClick = {()=>alert("Going to the list")} />
     <label> A Picture Above</label></div>
     
   </div>
