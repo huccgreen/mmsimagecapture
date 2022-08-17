@@ -7,10 +7,10 @@ import { AppContext } from '../appContext/AppContext';
 const CameraComponent = () => {
 	const camera = useRef(null);
 
-	const [ image, setImage ] = useState();
-	const [ numberOfCameras, setNumberOfCameras ] = useState(0);
+	const [image, setImage] = useState();
+	const [numberOfCameras, setNumberOfCameras] = useState(0);
 	let allImages = { photos: [] };
-	const [ allPictures, setAllPictures ] = useState();
+	const [allPictures, setAllPictures] = useState();
 
 	const addPhoto = (thePhoto) => {
 		allImages.photos.push(thePhoto);
@@ -27,7 +27,7 @@ const CameraComponent = () => {
 			{/* {<div className="absolute top-20 left-0">
       <img src={image} alt='Image preview' />
       </div>} */}
-			<div className="absolute bottom-10 left-30 bg-transparent w-full flex justify-around items-center h-12 text-gray-200 border-y-2 py-8">
+			<div className="absolute bottom-4 left-30 bg-transparent w-full flex justify-around items-center h-12 text-gray-200 border-y-2 py-8">
 				<Link to="/Pictures">
 					<button
 						type="button"
